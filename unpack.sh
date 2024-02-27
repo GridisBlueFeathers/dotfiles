@@ -25,4 +25,4 @@ then
 fi
 
 cp -rf ./.zshrc ~/.zshrc
-echo "tmux config unpacked"
+echo "zsh config unpacked"
