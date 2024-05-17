@@ -10,16 +10,7 @@ local capabilities = vim.tbl_deep_extend(
 
 require("mason-lspconfig").setup({
 	ensure_installed = {
-		"lua_ls",
-		"tsserver",
 		"clangd",
-		"bashls",
-		"cssls",
-		"eslint",
-		"emmet_ls",
-		"gopls",
-		"pyright",
-		"tailwindcss",
 	},
 	handlers = {
 		function(server_name) -- default handler (optional)

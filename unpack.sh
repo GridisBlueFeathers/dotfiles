@@ -1,13 +1,23 @@
 #!/bin/bash
 
-if [ -d ~/.config/nvim ];
+if [ "$1" = "--flatpak" ];
 then
-	mv -f ~/.config/nvim ~/.config/nvim-old
-	echo "old nvim config was moved to ~/.config/nvim-old"
+	if [ -d ~/.var/app/io.neovim.nvim/config/nvim/ ];
+	then
+		mv -f ~/.var/app/io.neovim.nvim/config/nvim/ ~/.var/app/io.neovim.nvim/config/nvim-old/
+		echo "old nvim config was moved to ~/.var/app/io.neovim.nvim/config/nvim-old"
+	fi
+	cp -rf ./nvim ~/.var/app/io.neovim.nvim/config/nvim/
+	echo "nvim config unpacked"
+else
+	if [ -d ~/.config/nvim ];
+	then
+		mv -f ~/.config/nvim ~/.config/nvim-old
+		echo "old nvim config was moved to ~/.config/nvim-old"
+	fi
+	cp -rf ./nvim ~/.config/nvim
+	echo "nvim config unpacked"
 fi
-
-cp -rf ./nvim ~/.config/nvim
-echo "nvim config unpacked"
 
 if [ -f ~/.tmux.conf ];
 then

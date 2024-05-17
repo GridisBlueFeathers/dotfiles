@@ -1,11 +1,22 @@
 #!/bin/bash
 
-if [ -d ~/.config/nvim ];
+if [ "$1" = "--flatpak" ];
 then
-	cp -rf ~/.config/nvim ./
-	echo "nvim config copied"
+	if [ -d ~/.var/app/io.neovim.nvim/config/nvim/ ];
+	then
+		cp -rf ~/.var/app/io.neovim.nvim/config/nvim/ ./
+		echo "nvim config copied"
+	else
+		echo "no nvim config at ~/.var/app/io.neovim.nvim/config/nvim/"
+	fi
 else
-	echo "no nvim config at ~/.config/nvim"
+	if [ -d ~/.config/nvim ];
+	then
+		cp -rf ~/.config/nvim ./
+		echo "nvim config copied"
+	else
+		echo "no nvim config at ~/.config/nvim"
+	fi
 fi
 
 if [ -f ~/.tmux.conf ];
