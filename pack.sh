@@ -1,36 +1,19 @@
 #!/bin/bash
 
-if [ "$1" = "--flatpak" ];
-then
-	if [ -d ~/.var/app/io.neovim.nvim/config/nvim/ ];
-	then
-		cp -rf ~/.var/app/io.neovim.nvim/config/nvim/ ./
-		echo "nvim config copied"
+pack () {
+	if [ -z $1 ]; then
+		echo "no argument supplied"
+	elif [ -d $1 ]; then
+		cp -rf $1 ./
+		echo "$1 config packed"
+	elif [ -f $1 ]; then
+		cp -rf $1 ./
+		echo "$1 config packed"
 	else
-		echo "no nvim config at ~/.var/app/io.neovim.nvim/config/nvim/"
+		echo "$1: file or directory not found"
 	fi
-else
-	if [ -d ~/.config/nvim ];
-	then
-		cp -rf ~/.config/nvim ./
-		echo "nvim config copied"
-	else
-		echo "no nvim config at ~/.config/nvim"
-	fi
-fi
+}
 
-if [ -f ~/.tmux.conf ];
-then
-	cp -rf ~/.tmux.conf ./
-	echo "tmux config copied"
-else
-	echo "no tmux config at ~/.tmux.conf"
-fi
-
-if [ -f ~/.zshrc ];
-then
-	cp -rf ~/.zshrc ./
-	echo "zsh config copied"
-else
-	echo "no zsh config at ~/.zshrc"
-fi
+pack ~/.tmux.conf
+pack ~/.zshrc
+pack ~/.config/nvim

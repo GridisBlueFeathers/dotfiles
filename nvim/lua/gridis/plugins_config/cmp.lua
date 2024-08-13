@@ -23,7 +23,7 @@ cmp.setup({
 		["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
 		-- ["<c-y>"] = cmp.mapping.confirm({ select = true }),
 		["<c-y>"] = cmp.mapping(function(fallback)
-			if luasnip.expand_or_jumpable() then
+			if luasnip.expand_or_locally_jumpable() then
 				luasnip.expand_or_jump()
 			elseif has_words_before() then
 				cmp.confirm({ select = true })
@@ -50,7 +50,6 @@ cmp.setup({
 			name = "path",
 		},
 		{
-
 			{
 				name = "buffer",
 			},

@@ -50,4 +50,5 @@ require("lazy").setup({
 	"saadparwaiz1/cmp_luasnip",
 	"rafamadriz/friendly-snippets",
 	"Diogo-ss/42-header.nvim",
+	"andweeb/presence.nvim",
 })

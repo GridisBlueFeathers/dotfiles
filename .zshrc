@@ -85,7 +85,7 @@ source $ZSH/oh-my-zsh.sh
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='nvim'
+  export EDITOR='vim'
 fi
 
 # Compilation flags
@@ -100,7 +100,6 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias cci="cc -Wall -Werror -Wextra *.c && ./a.out"
-alias nvim="flatpak run io.neovim.nvim"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -112,3 +111,5 @@ export NVM_DIR="$HOME/.nvm"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH=/home/svereten/.local/funcheck/host:$PATH
+export PATH=$HOME/.brew/bin:$PATH
