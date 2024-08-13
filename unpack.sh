@@ -1,38 +1,24 @@
 #!/bin/bash
 
-if [ "$1" = "--flatpak" ];
-then
-	if [ -d ~/.var/app/io.neovim.nvim/config/nvim/ ];
-	then
-		mv -f ~/.var/app/io.neovim.nvim/config/nvim/ ~/.var/app/io.neovim.nvim/config/nvim-old/
-		echo "old nvim config was moved to ~/.var/app/io.neovim.nvim/config/nvim-old"
+unpack () {
+	if [ -z $1 ] || [ -z $2 ]; then
+		echo "not enough arguments supplied"
+		return 0;
 	fi
-	cp -rf ./nvim ~/.var/app/io.neovim.nvim/config/nvim/
-	echo "nvim config unpacked"
-else
-	if [ -d ~/.config/nvim ];
-	then
-		mv -f ~/.config/nvim ~/.config/nvim-old
-		echo "old nvim config was moved to ~/.config/nvim-old"
+
+	if [ -d $1 ] || [ -f $1 ]; then
+		if [ -d $2 ] || [ -f $2 ]; then
+			rm -rf $2-old
+			mv -f $2 $2-old
+			echo "$2 was moved to $2-old"
+		fi
+		cp -rf $1 $2
+		echo "$1 was unpacked to $2"
+	else
+		echo "$1: file or directory not found"
 	fi
-	cp -rf ./nvim ~/.config/nvim
-	echo "nvim config unpacked"
-fi
+}
 
-if [ -f ~/.tmux.conf ];
-then
-	mv -f ~/.tmux.conf ~/.tmux.conf-old
-	echo "old tmux config was moved to ~/.tmux.conf-old"
-fi
-
-cp -rf ./.tmux.conf ~/.tmux.conf
-echo "tmux config unpacked"
-
-if [ -f ~/.zshrc ];
-then
-	mv -f ~/.zshrc ~/.zshrc-old
-	echo "old zsh config was moved to ~/.zshrc-old"
-fi
-
-cp -rf ./.zshrc ~/.zshrc
-echo "zsh config unpacked"
+unpack .tmux.conf ~/.tmux.conf
+unpack nvim ~/.config/nvim
+unpack .zshrc ~/.zshrc
