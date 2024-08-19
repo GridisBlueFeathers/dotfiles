@@ -9,3 +9,5 @@ vim.opt.scrolloff = 8
 vim.opt.swapfile = false
 vim.opt.termguicolors = true
 vim.opt.signcolumn = "yes:1"
+
+vim.opt.hidden = false
