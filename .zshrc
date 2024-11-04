@@ -100,6 +100,7 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias cci="cc -Wall -Werror -Wextra *.c && ./a.out"
+alias rustnorm="cargo clippy -- -D warnings"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -113,3 +114,5 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 export PATH=/home/svereten/.local/funcheck/host:$PATH
 export PATH=$HOME/.brew/bin:$PATH
+export PATH=/home/gridis/.local/funcheck/host:$PATH
+export PATH=/home/gridis/.cargo/env:$PATH
