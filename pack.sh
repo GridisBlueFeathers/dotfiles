@@ -20,3 +20,4 @@ pack () {
 pack ~/.tmux.conf
 pack ~/.zshrc
 pack ~/.config/nvim
+pack ~/.config/wezterm

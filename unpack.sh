@@ -22,3 +22,4 @@ unpack () {
 unpack .tmux.conf ~/.tmux.conf
 unpack nvim ~/.config/nvim
 unpack .zshrc ~/.zshrc
+unpack wezterm ~/.config/wezterm
