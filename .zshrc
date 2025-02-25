@@ -116,3 +116,6 @@ export PATH=/home/svereten/.local/funcheck/host:$PATH
 export PATH=$HOME/.brew/bin:$PATH
 export PATH=/home/gridis/.local/funcheck/host:$PATH
 export PATH=/home/gridis/.cargo/env:$PATH
+
+alias mstest="bash /home/svereten/42_minishell_tester/tester.sh"
+

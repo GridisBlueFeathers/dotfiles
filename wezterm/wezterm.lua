@@ -29,7 +29,7 @@ config.keys = {
 		action = wezterm.action.ToggleFullScreen,
 	},
 	{
-		key = 'h',
+		key = 's',
 		mods = "LEADER",
 		action = wezterm.action.SplitHorizontal { domain = "CurrentPaneDomain" }
 	},
@@ -46,7 +46,7 @@ config.keys = {
 	{
 		key = 'x',
 		mods = "LEADER",
-		action = wezterm.action.CloseCurrentTab { confirm = true }
+		action = wezterm.action.CloseCurrentPane { confirm = true }
 	},
 	{
 		key = 'n',
@@ -69,8 +69,10 @@ config.keys = {
 		},
 	},
 	smart_splits.split_nav('move', 'h', wezterm),
-    smart_splits.split_nav('move', 'j', wezterm),
-    smart_splits.split_nav('move', 'k', wezterm),
+	smart_splits.leader_nav('h', wezterm),
+	smart_splits.leader_nav('j', wezterm),
+    smart_splits.leader_nav('k', wezterm),
+    smart_splits.leader_nav('l', wezterm),
     smart_splits.split_nav('move', 'l', wezterm),
 }
 
