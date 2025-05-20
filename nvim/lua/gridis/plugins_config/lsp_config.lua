@@ -9,9 +9,6 @@ local capabilities = vim.tbl_deep_extend(
 )
 
 require("mason-lspconfig").setup({
-	ensure_installed = {
-		"clangd",
-	},
 	handlers = {
 		function(server_name) -- default handler (optional)
 			lspconfig[server_name].setup {
@@ -64,13 +61,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 vim.diagnostic.config({
-	-- update_in_insert = true,
-	float = {
-		focusable = false,
-		style = "minimal",
-		border = "rounded",
-		source = "always",
-		header = "",
-		prefix = "",
-	},
+	--update_in_insert = true,
+	virtual_text = true,
 })

@@ -7,7 +7,6 @@ require("lazy").setup({
 	},
 	{
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.5",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"BurntSushi/ripgrep",
@@ -19,7 +18,10 @@ require("lazy").setup({
 			"nvim-tree/nvim-web-devicons"
 		}
 	},
-	"nvim-treesitter/nvim-treesitter",
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+	},
 	"williamboman/mason.nvim",
 	"williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
