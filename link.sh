@@ -23,4 +23,4 @@ link () {
 link ~/dotfiles/.zshrc ~/.zshrc
 link ~/dotfiles/nvim ~/.config/nvim
 link ~/dotfiles/.tmux.conf ~/.tmux.conf
-link ~/dotfiles/wezterm ~/wezterm
+link ~/dotfiles/wezterm ~/.config/wezterm
