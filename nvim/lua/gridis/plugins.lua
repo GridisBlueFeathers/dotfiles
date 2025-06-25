@@ -22,6 +22,11 @@ require("lazy").setup({
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 	},
+	{
+		"kylechui/nvim-surround",
+		version = "^3.0.0", -- Use for stability; omit to use `main` branch for the latest features
+		event = "VeryLazy",
+	},
 	"williamboman/mason.nvim",
 	"williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",

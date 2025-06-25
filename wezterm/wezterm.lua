@@ -1,5 +1,6 @@
 local wezterm = require 'wezterm'
 local smart_splits = require "smart_splits"
+local backgrounds = require "backgrounds"
 local config = wezterm.config_builder()
 
 config.font = wezterm.font("UbuntuMono Nerd Font")
@@ -8,7 +9,7 @@ config.font_size = 13
 config.background = {
 	{
 		source = {
-			File = wezterm.config_dir .. "/backgrounds/samurai.jpg",
+			File = wezterm.config_dir .. "/../backgrounds/jack_frost.jpg",
 		},
 		horizontal_align = "Center",
 		hsb = {
@@ -46,7 +47,10 @@ config.keys = {
 	{
 		key = 'x',
 		mods = "LEADER",
-		action = wezterm.action.CloseCurrentPane { confirm = true }
+		action = wezterm.action.Multiple {
+			wezterm.action.CloseCurrentPane { confirm = true },
+			wezterm.action_callback(backgrounds.overrideBackground(window, pane, line))
+		}
 	},
 	{
 		key = 'n',
@@ -86,7 +90,7 @@ end
 
 wezterm.on("update-status", function(window)
 	local backgrounds = {
-		"/backgrounds/samurai.jpg",
+		"/backgrounds/jack_frost.jpg",
 		"/backgrounds/we_do_what_we_must.jpg",
 		"/backgrounds/samurai.jpg",
 		"/backgrounds/samurai.jpg",
