@@ -3,13 +3,29 @@ local smart_splits = require "smart_splits"
 local backgrounds = require "backgrounds"
 local config = wezterm.config_builder()
 
+local bgOverride = function (window, pane, line)
+	local overrides = window:get_config_overrides() or {}
+	overrides.background = {
+		{
+			source = {
+				File = wezterm.config_dir .. backgrounds.getBackground(),
+			},
+			horizontal_align = "Center",
+			hsb = {
+				brightness = 0.1
+			}
+		},
+	}
+	window:set_config_overrides(overrides)
+end
+
 config.font = wezterm.font("UbuntuMono Nerd Font")
 config.font_size = 13
 
 config.background = {
 	{
 		source = {
-			File = wezterm.config_dir .. "/../backgrounds/jack_frost.jpg",
+			File = wezterm.config_dir .. "/backgrounds/jack_frost.jpg",
 		},
 		horizontal_align = "Center",
 		hsb = {
@@ -49,13 +65,16 @@ config.keys = {
 		mods = "LEADER",
 		action = wezterm.action.Multiple {
 			wezterm.action.CloseCurrentPane { confirm = true },
-			wezterm.action_callback(backgrounds.overrideBackground(window, pane, line))
+			wezterm.action_callback(bgOverride)
 		}
 	},
 	{
 		key = 'n',
 		mods = "LEADER",
-		action = wezterm.action.SpawnTab "CurrentPaneDomain"
+		action = wezterm.action.Multiple {
+			wezterm.action.SpawnTab "CurrentPaneDomain",
+			wezterm.action_callback(bgOverride)
+		}
 	},
 	{
 		key = 'r',
@@ -87,36 +106,5 @@ for i = 1, 8 do
 		action = wezterm.action.ActivateTab(i - 1),
 	})
 end
-
-wezterm.on("update-status", function(window)
-	local backgrounds = {
-		"/backgrounds/jack_frost.jpg",
-		"/backgrounds/we_do_what_we_must.jpg",
-		"/backgrounds/samurai.jpg",
-		"/backgrounds/samurai.jpg",
-		"/backgrounds/samurai.jpg",
-		"/backgrounds/samurai.jpg",
-		"/backgrounds/samurai.jpg",
-	}
-
-	local overrides = window:get_config_overrides() or {}
-	for _, item in pairs(window:mux_window():tabs_with_info()) do
-		if item.is_active then
-			overrides.background = {
-				{
-					source = {
-						File = wezterm.config_dir .. backgrounds[item.index + 1],
-					},
-					horizontal_align = "Center",
-					hsb = {
-						brightness = 0.1
-					}
-				},
-			}
-			window:set_config_overrides(overrides)
-			break
-		end
-	end
-end)
 
 return config

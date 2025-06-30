@@ -20,6 +20,7 @@ link () {
 	fi
 }
 
+
 link ~/dotfiles/.zshrc ~/.zshrc
 link ~/dotfiles/nvim ~/.config/nvim
 link ~/dotfiles/.tmux.conf ~/.tmux.conf
