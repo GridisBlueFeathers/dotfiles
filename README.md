@@ -6,6 +6,8 @@
 
 - Opera
 - zsh
+- flatpak
+- clang-12
 
 ### Flatpak
 
@@ -21,3 +23,10 @@
 
 - Neovim
 
+### Just download it and put it where it should be
+
+- UbuntuMono Nerd Font
+
+## Config install scripts
+
+run `./link.sh` to create symlinks for configs
