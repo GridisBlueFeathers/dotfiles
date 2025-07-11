@@ -8,6 +8,7 @@
 - zsh
 - flatpak
 - clang-12
+- bear
 
 ### Flatpak
 
