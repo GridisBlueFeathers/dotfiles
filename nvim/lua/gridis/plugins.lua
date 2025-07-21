@@ -27,6 +27,10 @@ require("lazy").setup({
 		version = "^3.0.0", -- Use for stability; omit to use `main` branch for the latest features
 		event = "VeryLazy",
 	},
+	{
+		'vyfor/cord.nvim',
+		build = ':Cord update',
+	},
 	"williamboman/mason.nvim",
 	"williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
@@ -41,6 +45,5 @@ require("lazy").setup({
 	"saadparwaiz1/cmp_luasnip",
 	"rafamadriz/friendly-snippets",
 	"Diogo-ss/42-header.nvim",
-	"andweeb/presence.nvim",
 	"mrjones2014/smart-splits.nvim",
 })
