@@ -23,6 +23,7 @@
 ### Compile from source
 
 - Neovim
+- Googletest (1.12.1)
 
 ### Just download it and put it where it should be
 
