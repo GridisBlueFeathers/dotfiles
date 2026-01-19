@@ -122,3 +122,6 @@ alias mstest="bash /home/svereten/42_minishell_tester/tester.sh"
 alias form="zsh /home/svereten/cpp_class_creator/form.sh"
 alias makegen="zsh /home/svereten/cpp_class_creator/makefile.sh"
 alias ccc-update="zsh /home/svereten/cpp_class_creator/installer.sh"
+
+# Created by `pipx` on 2025-07-28 18:47:30
+export PATH="$PATH:/home/gridis/.local/bin"

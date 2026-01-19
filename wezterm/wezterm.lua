@@ -20,7 +20,7 @@ local bgOverride = function (window, pane, line)
 end
 
 config.font = wezterm.font("UbuntuMono Nerd Font")
-config.font_size = 13
+config.font_size = 14
 
 config.background = {
 	{
