@@ -12,4 +12,32 @@ config.leader = remaps.leader
 
 config.keys = remaps.keys
 
+config.show_new_tab_button_in_tab_bar = false
+
+config.use_fancy_tab_bar = false
+
+config.colors = {
+	tab_bar = {
+		background = "#04101A",
+		active_tab = {
+			bg_color = "#134F80",
+			fg_color = "#FFF"
+		},
+		inactive_tab = {
+			bg_color = "#0A2740",
+			fg_color = "#999"
+		}
+	},
+}
+
+wezterm.on("update-right-status", function(window, pane)
+	local date = wezterm.strftime " %H:%M "
+
+	window:set_right_status(wezterm.format {
+		{Foreground = {Color = "#AAA"}},
+		{Background = {Color = "#04101A"}},
+		{Text = date},
+	})
+end)
+
 return config
